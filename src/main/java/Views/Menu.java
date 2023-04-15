@@ -110,9 +110,6 @@ public class Menu {
                     productView.showProductGuest();
                     checkAction = true;
                     break;
-//                case 2:
-//                    productView.showProductDescriptionGuest();
-//                    break;
                 case 2:
                     productView.findProductByNameGuest();
                     checkAction = true;

@@ -1,6 +1,7 @@
 package Model;
 
 import Utilities.CSVUtils;
+import Utilities.CurrencyFormat;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,7 +43,7 @@ public class Payment {
         this.Quantity = Integer.parseInt(strings[2]);
         this.PhoneNumber= strings[3];
         this.Address = strings[4];
-        this.Total= Double.parseDouble(strings[5]);
+        this.Total= CurrencyFormat.parseDouble(strings[5]);
     }
 
     public void setId(int id) {
@@ -92,7 +93,7 @@ public class Payment {
     @Override
     public String toString() {
         //1,Quốc Pháp,2,0336056504,Huế,3200000.0
-        return String.format("%s,%s,%s,%s,%s,%s", this.Id, this.Name, this.Quantity, this.PhoneNumber, this.Address, this.Total);
+        return String.format("%s,%s,%s,%s,%s,%s", this.Id, this.Name, this.Quantity, this.PhoneNumber, this.Address, CurrencyFormat.parseInteger(this.Total));
     }
 
 

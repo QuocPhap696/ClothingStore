@@ -5,6 +5,7 @@ import Model.Product;
 import Service.PaymentService;
 import Service.ProductService;
 import Utilities.CSVUtils;
+import Utilities.CurrencyFormat;
 import Utilities.DateUtils;
 
 import java.text.DecimalFormat;
@@ -61,7 +62,6 @@ public class PaymentView {
                     System.out.println();
                 }
             }
-//            int id = Integer.parseInt(scanner.nextLine());
 
             try {
                 System.out.println("Nhập số lượng");
@@ -73,8 +73,9 @@ public class PaymentView {
                             quantityPurchased = quantity;
                             price = products.get(i).getPrice();
                             break;
-                        } else {
-                            System.out.println("Số lương vượt qua hàng có sẵn");
+                        } else if (quantity > products.get(i).getQuantity() && products.get(i).getId() == id1) {
+                            System.out.println("Số lượng vượt quá hàng có sẵn");
+                            break;
                         }
                     }
                     revenue = quantityPurchased * price;
@@ -112,9 +113,6 @@ public class PaymentView {
                 System.out.println("Số lượng phải là 1");
             }
         }
-
-
-
     }
 
     public void showTotal() {
@@ -122,8 +120,8 @@ public class PaymentView {
         System.out.println("______________________");
         long sum = 0;
         for (int i = 0; i < list.size(); i++) {
-            long total;
-            total = (long) (list.get(i).getQuantity() * productService.findProductById(list.get(i).getId()).getPrice());
+            double total;
+            total = (double) (list.get(i).getQuantity() * productService.findProductById(list.get(i).getId()).getPrice());
             System.out.printf("Sản phẩm của bạn là : %s, số lượng %s\n", productService.findProductById(list.get(i).getId()).getNameProduct(), productService.findProductById(list.get(i).getId()).getQuantity());
             sum += total;
         }
@@ -138,16 +136,17 @@ public class PaymentView {
         System.out.println("__________________");
         System.out.println("Tên khách hàng :" + list.get(0).getName());
         System.out.println("Số điện thoại :" + list.get(0).getPhoneNumber());
+        System.out.println("Địa chỉ: "+ list.get(0).getAddress());
         System.out.println("Danh sách sản phẩm mua");
-        long sum = 0;
+        double sum = 0;
         for (int i = 0; i < list.size(); i++) {
-            long total;
-            total = (long) (list.get(i).getQuantity() * productService.findProductById(list.get(i).getId()).getPrice());
-            System.out.printf("Tổng tiền là :%s\n ", productService.findProductById(list.get(i).getId()).getNameProduct(), format.format(total));
+            double total;
+            total = (double) (list.get(i).getQuantity() * productService.findProductById(list.get(i).getId()).getPrice());
+            System.out.printf("Tổng tiền là :%s\n ", CurrencyFormat.covertPriceToString(total));
             sum += total;
         }
         System.out.println("________________________________________");
-        System.out.println("Số cần cần thanh toán là :" + format.format(sum));
+        System.out.println("Số tiền cần thanh toán là :" + CurrencyFormat.covertPriceToString(sum));
         System.out.println("________________________________________\n\n");
         afterPay();
     }

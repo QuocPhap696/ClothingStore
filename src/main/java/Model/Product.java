@@ -1,5 +1,7 @@
 package Model;
 
+import Utilities.CurrencyFormat;
+
 import java.util.List;
 
 public class Product {
@@ -120,9 +122,11 @@ public class Product {
         this.Description = strings[4];
         this.Quantity = Integer.parseInt(strings[5]);
         this.EntryDate =  strings[6];
-        this.Price = Double.parseDouble(strings[7]);
+        this.Price = CurrencyFormat.parseDouble(strings[7]);
+//        this.Price = Double.parseDouble(strings[7]);
         this.Status = Model.Status.getStatus(strings[8]);
     }
+
 
 
     public String toViewer() {
@@ -134,7 +138,9 @@ public class Product {
     public String toString() {
         //7,Hoodie,XL,Black,Form OverSize,10,20-02-2023 19:09:20,3765000,Còn
         return String.format("%s,%s,%s,%s,%s,%s,%s,%s,%s",
-                this.Id, this.NameProduct, this.Size, this.Color, this.Description, this.Quantity, this.EntryDate,this.Price , this.Status
+                this.Id, this.NameProduct, this.Size, this.Color, this.Description, this.Quantity, this.EntryDate,CurrencyFormat.parseInteger(this.Price), this.Status
                 );
     }
+
+
 }
