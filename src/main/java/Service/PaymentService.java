@@ -1,0 +1,59 @@
+package Service;
+
+import Model.Payment;
+import Utilities.CSVUtils;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class PaymentService implements IPaymentService {
+    List<Payment> paymentList = new ArrayList<>();
+    public static String path = "/Users/QuocPhap/Desktop/ClothingStore/src/main/Data/Payment.csv";
+
+    @Override
+    public List<Payment> getPaymet() {
+        List<Payment> newPaymentList = new ArrayList<>();
+        List<String> reads = CSVUtils.read(path);
+        for (String read : reads){
+            newPaymentList.add(new Payment(read));
+        }
+        return paymentList = newPaymentList;
+    }
+
+    @Override
+    public void add(List<Payment> list) {
+        getPayment();
+        for (Payment p :list) {
+            paymentList.add(p);
+        }
+        CSVUtils.write(path, paymentList);
+    }
+
+    @Override
+    public void recheck(int id, Payment updatePayment) {
+        getPayment();
+            for (int i = 0; i < paymentList.size(); i++){
+                if (paymentList.get(i).getId()== id){
+                    paymentList.set(i, updatePayment);
+                }
+            }
+    }
+
+    public long showTotal() {
+        getPayment();
+        long a = 0;
+        for (Payment p : paymentList) {
+            double x = p.getTotal();
+            a += x;
+        }
+        return a;
+    }
+    public List<Payment> getPayment() {
+        List<Payment> newPaymentList = new ArrayList<>();
+        List<String> reads = CSVUtils.read(path);
+        for (String read : reads) {
+            newPaymentList.add(new Payment(read));
+        }
+        return paymentList = newPaymentList;
+    }
+}
