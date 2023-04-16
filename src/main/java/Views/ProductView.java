@@ -45,7 +45,6 @@ public class ProductView {
                 checkID = false;
             }
         }while (!checkID);
-        //7,Hoodie,XL,Black,Form OverSize,10,20-02-2023 19:09:20,3765000.0,null
         String name;
         while (true) {
             System.out.println("Nhập tên sản phẩm: ");
@@ -109,7 +108,7 @@ public class ProductView {
     public void showProduct() {
         List<Product> products = productService.getProduct();
         System.out.println("Danh sách sản phẩm");
-        System.out.println("\\t\\t\\t\\t=========================================================================================================================");
+        System.out.println("\\t\\t\\t\\t======================================================================================================");
         System.out.printf("\t\t\t\t%-10s %-25s %-25s %-15s %-25s %-25s %-25s %-25s %-25s\n", "ID", "Tên Sản Phẩm", "Size",
                     "Màu sắc","Mô Tả", "Số Lượng", "Ngày Nhập", "Giá", "Trạng Thái");
         for (Product product : products) {
@@ -117,48 +116,38 @@ public class ProductView {
                     product.getId(), product.getNameProduct(), product.getSize(), product.getColor(),
                     product.getDescription(),product.getQuantity(),product.getEntryDate(),format.format(product.getPrice()), product.getStatus());
         }
-        System.out.println("\t\t\t\t=========================================================================================================================\n\n");
+        System.out.println("\t\t\t\t===========================================================================================================\n\n");
       menu.boss();
     }
 
     public void showProductBoss(){
         List<Product> products = productService.getProduct();
         System.out.println("Danh sách sản phẩm");
-        System.out.println("\t\t\t\t=========================================================================================================================");
+        System.out.println("\t\t\t\t===========================================================================================================");
         System.out.printf("\t\t\t\t%-10s %-25s %-30s %-15s %-25s \n", "ID", "Tên sản phẩm","Size", "Số lượng", "Giá");
         for (Product product :products) {
             System.out.printf("\t\t\t\t%-10s %-25s %-30s %-15s %-25s \n", product.getId(), product.getNameProduct(),product.getSize(), product.getQuantity(), product.getPrice());
 
         }
 
-        System.out.println("\t\t\t\t=========================================================================================================================\n\n");
+        System.out.println("\t\t\t\t============================================================================================================\n\n");
         menu.menuBoss();
     }
 
     public void showProductGuest() {
         List<Product> products = productService.getProduct();
         System.out.println("Danh sách sản phẩm");
-        System.out.println("\t\t\t\t=========================================================================================================================");
+        System.out.println("\t\t\t\t==================================================================================================");
         System.out.printf("\t\t\t\t%-10s %-25s %-30s %-15s %-25s \n", "ID", "Tên sản phẩm","Size", "Số lượng", "Giá");
         for (Product product :products) {
             System.out.printf("\t\t\t\t%-10s %-25s %-30s %-15s %-25s \n", product.getId(), product.getNameProduct(),product.getSize(), product.getQuantity(), product.getPrice());
 
         }
 
-        System.out.println("\t\t\t\t=========================================================================================================================\n\n");
+        System.out.println("\t\t\t\t===================================================================================================\n\n");
         menu.guest();
     }
-//    public void showProductDescriptionGuest(){
-//        List<Product> products = productService.getProduct();
-//        System.out.println("Mô tả sản phẩm");
-//        System.out.println("\t\t\t\t=========================================================================================================================");
-//        System.out.printf("\t\t\t\t%-10s %-25s %-30s %-30s %-30s\n", "ID","Tên sản phẩm","Size", "Màu sắc", "Mô tả");
-//        for (Product product :products) {
-//            System.out.printf("\t\t\t\t%-10s %-25s %-30s %-30s %-30s\n", product.getId(), product.getNameProduct(), product.getSize(), product.getColor(),product.getDescription());
-//        }
-//        System.out.println("\t\t\t\t=========================================================================================================================\n\n");
-//        menu.guest();
-//    }
+
     public void sortASC() {
         List<Product> p = productService.getProduct();
         p.sort(new PriceSortASC());
@@ -250,7 +239,6 @@ public class ProductView {
         }
 
 
-//        noChange();
         while (true) {
             System.out.println("Nhập tên cần sửa");
             System.out.print("\t➺ ");
