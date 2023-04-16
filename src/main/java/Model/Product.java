@@ -33,6 +33,8 @@ public class Product {
         this.Status = Status;
     }
 
+
+
     public Integer getId() {
         return Id;
     }

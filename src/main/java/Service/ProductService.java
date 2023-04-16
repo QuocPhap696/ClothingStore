@@ -6,6 +6,7 @@ import Utilities.CSVUtils;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class ProductService implements IProductService {
     List<Product> productList = new ArrayList<>();
@@ -127,4 +128,20 @@ public class ProductService implements IProductService {
         }
         return false;
     }
+
+
+//    //xoá ////
+//    public  void deleteBookByName(String name){
+//        int index = -1;
+//        for (int i = 0; i < productList.size(); i++) {
+//            if (Objects.equals(name, productList.get(i).getNameProduct())) {
+//                index = i;
+//            }
+//        }
+//
+//        if(index != -1) {
+//            productList.remove(index);
+//        }
+//    }
 }
+

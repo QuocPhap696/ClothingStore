@@ -48,10 +48,10 @@ public class ProductView {
         String name;
         while (true) {
             System.out.println("Nhập tên sản phẩm: ");
-            System.out.print("\t➺ ");
+            System.out.print("\t=> ");
             String check = scanner.nextLine();
             if (productService.existProductName(check)) {
-                System.out.println(" ❌ Tên này đã tồn tại xin nhập tên khác ❌");
+                System.out.println(" == Tên này đã tồn tại xin nhập tên khác ==");
             } else {
                 name = check;
                 break;
@@ -69,40 +69,40 @@ public class ProductView {
         int quantity;
         while (true) {
             System.out.println("Nhập số lượng sản phẩm: ");
-            System.out.print("\t➺ ");
+            System.out.print("\t=> ");
             try {
                 quantity = Integer.parseInt(scanner.nextLine());
                 if (quantity > 0) {
                     break;
                 }
-                System.out.println("\t ❌ Số lượng phải lớn hơn 0 ❌");
+                System.out.println("\t == Số lượng phải lớn hơn 0 ==");
                 System.out.println();
             } catch (Exception e) {
-                System.out.println("\t ❌ Số lượng phải là 1 số ❌");
+                System.out.println("\t == Số lượng phải là 1 số ==");
                 System.out.println();
             }
         }
         double price;
         while (true) {
             System.out.println("Nhập giá sản phẩm: ");
-            System.out.print("\t➺ ");
+            System.out.print("\t=> ");
             try {
                 price = Double.parseDouble(scanner.nextLine());
                 if (price > 0) {
                     break;
                 }
-                System.out.println("\t❌ Giá phải lớn hơn 0 ❌");
+                System.out.println("\t== Giá phải lớn hơn 0 ==");
                 System.out.println();
             } catch (Exception e) {
-                System.out.println("\t❌ Giá phải là 1 số ❌");
+                System.out.println("\t== Giá phải là 1 số ==");
                 System.out.println();
             }
         }
         Status status = Status.INSTOCK;
         Product product = new Product(id, name,size,color, description, quantity, DateUtils.formatDate(new Date()), price, status);
         productService.add(product);
-        System.out.println("✔ Bạn đã thêm sản phẩm thành công ✔\n");
-        System.out.println("\t\t\t\t=========================================================================================================================\n\n");
+        System.out.println("> Bạn đã thêm sản phẩm thành công <\n");
+        System.out.println("\t\t\t\t==========================================================================================================\n\n");
         menu.boss();
     }
     public void showProduct() {
@@ -130,21 +130,20 @@ public class ProductView {
 
         }
 
-        System.out.println("\t\t\t\t============================================================================================================\n\n");
+        System.out.println("\t\t\t\t===========================================================================================================\n\n");
         menu.menuBoss();
     }
 
     public void showProductGuest() {
         List<Product> products = productService.getProduct();
         System.out.println("Danh sách sản phẩm");
-        System.out.println("\t\t\t\t==================================================================================================");
+        System.out.println("\t\t\t\t===========================================================================================================");
         System.out.printf("\t\t\t\t%-10s %-25s %-30s %-15s %-25s \n", "ID", "Tên sản phẩm","Size", "Số lượng", "Giá");
         for (Product product :products) {
             System.out.printf("\t\t\t\t%-10s %-25s %-30s %-15s %-25s \n", product.getId(), product.getNameProduct(),product.getSize(), product.getQuantity(), product.getPrice());
 
         }
-
-        System.out.println("\t\t\t\t===================================================================================================\n\n");
+        System.out.println("\t\t\t\t===========================================================================================================\n\n");
         menu.guest();
     }
 
@@ -201,15 +200,15 @@ public class ProductView {
         System.out.printf("\t\t\t\t%-10s %-25s %-25s %-15s %-25s\n","ID", "Tên sản phẩm", "Size","Color", "Giá");
         for (Product product : p) {
             if (product.getNameProduct().toUpperCase().contains(name)){
-                System.out.println("\t\t\t\t=========================================================================================================================\n");
+                System.out.println("\t\t\t\t=================================================================================================================\n");
                 System.out.printf("\t\t\t\t%-10s %-25s %-25s %-15s %-25s\n", product.getId(),product.getNameProduct(),product.getSize(),product.getColor(),product.getPrice());
                 found = true;
             }
         }
         if (!found){
-            System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t ✖ Không có sản phẩm này ✖");
+                System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t ✖ Không có sản phẩm này ✖");
         }
-        System.out.println("\t\t\t\t=========================================================================================================================\n");
+                System.out.println("\t\t\t\t=================================================================================================================\n");
         menu.guest();
     }
 
@@ -218,7 +217,7 @@ public class ProductView {
         Product update = null;
         while (true) {
             System.out.println("Nhập ID sản phẩm cần sửa");
-            System.out.print("\t➺ ");
+            System.out.print("\t=> ");
             try {
                 id = Integer.parseInt(scanner.nextLine());
                 if (id > 0) {
@@ -226,14 +225,14 @@ public class ProductView {
                         update = productService.findProductbyID(id);
                         break;
                     } else {
-                        System.out.println(" ❌ ID này không tồn tại ❌");
+                        System.out.println(" == ID này không tồn tại ==");
                     }
                 } else {
-                    System.out.println("\t ❌ ID phải lớn hơn 0 ❌");
+                    System.out.println("\t == ID phải lớn hơn 0 ==");
                     System.out.println();
                 }
             } catch (Exception e) {
-                System.out.println("\t ❌ ID phải là 1 số ❌");
+                System.out.println("\t == ID phải là 1 số ==");
                 System.out.println();
             }
         }
@@ -241,11 +240,11 @@ public class ProductView {
 
         while (true) {
             System.out.println("Nhập tên cần sửa");
-            System.out.print("\t➺ ");
+            System.out.print("\t=> ");
             String name = scanner.nextLine();
             if (!name.equals("-1")) {
                 if (productService.existProductName(name)) {
-                    System.out.println(" ❌ Tên này đã tồn tại xin nhập tên khác ❌");
+                    System.out.println(" == Tên này đã tồn tại xin nhập tên khác ==");
                 } else {
                     update.setNameProduct(name);
                     break;
@@ -257,7 +256,7 @@ public class ProductView {
         noChange();
         while (true) {
             System.out.println("Nhập số lượng sản phẩm: ");
-            System.out.print("\t➺ ");
+            System.out.print("\t=> ");
             try {
                 int quantity = Integer.parseInt(scanner.nextLine());
                 if (!(quantity == -1)) {
@@ -265,20 +264,20 @@ public class ProductView {
                         update.setQuantity(quantity);
                         break;
                     }
-                    System.out.println("\t ❌ Số lượng phải lớn hơn 0 ❌");
+                    System.out.println("\t * Số lượng phải lớn hơn 0 *");
                     System.out.println();
                 } else {
                     break;
                 }
             } catch (Exception e) {
-                System.out.println("\t ❌ Số lượng phải là 1 số ❌");
+                System.out.println("\t * Số lượng phải là 1 số *");
                 System.out.println();
             }
         }
         noChange();
         while (true) {
             System.out.println("Nhập giá sản phẩm: ");
-            System.out.print("\t➺ ");
+            System.out.print("\t=> ");
             try {
                 long price = Long.parseLong(scanner.nextLine());
                 if (!(price == -1)) {
@@ -286,20 +285,20 @@ public class ProductView {
                         update.setPrice(price);
                         break;
                     }
-                    System.out.println("\t ❌ Giá phải lớn hơn 0 ❌");
+                    System.out.println("\t == Giá phải lớn hơn 0 ==");
                     System.out.println();
                 } else {
                     break;
                 }
             } catch (Exception e) {
-                System.out.println("\t ❌ Giá phải là 1 số ❌");
+                System.out.println("\t == Giá phải là 1 số ==");
                 System.out.println();
             }
         }
         noChange();
         while (true) {
             System.out.println("Nhập mô tả sản phấm: ");
-            System.out.print(" \t➺ ");
+            System.out.print(" \t=> ");
             String description = scanner.nextLine();
             if (!(description.equals("-1"))) {
                 update.setDescription(description);
@@ -309,7 +308,7 @@ public class ProductView {
             }
         }
         productService.update(id, update);
-        System.out.println("✔ Bạn đã cập nhật sản phẩm thành công ✔\n");
+        System.out.println("> Bạn đã cập nhật sản phẩm thành công <\n");
         System.out.println("\t\t\t\t=========================================================================================================================");
         productService.checkExist();
         menu.boss();
@@ -347,5 +346,23 @@ public class ProductView {
         }
     }
 
+//    //xoá
+//    public void deleteMembers() {
+//        System.out.println("Nhập tên mà cưng muốn xoá");
+//        int id = Integer.parseInt(scanner.nextLine());
+//
+//        for (int i = 0; i < pr.size(); i++) {
+//            if ( id == customers.get(i).getId()) {
+//                customers.remove(i);
+//            }
+//        } showCustom();
+//    }
 
+//    //xoá sách
+//    public  void deleteProductByName() {
+//        System.out.println("Nhập tên mà bạn muốn xoá");
+//        String name = scanner.nextLine();
+//        productService.deleteBookByName(name);
+//        updateProduct();
+//    }
 }

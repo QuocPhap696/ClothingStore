@@ -57,6 +57,9 @@ public class Menu {
                     case 7:
                         exit();
                         break;
+//                    case 8:
+//                        productView.deleteProductByName();
+//                        break;
                     default:
                         System.out.println("Chọn chức năng không đúng! Vui lòng chọn lại");
                         break;
@@ -184,7 +187,7 @@ public class Menu {
 
     public static void menuMain() {
         System.out.println();
-        System.out.println("* * * * --Giao diện-- * * * * * *");
+        System.out.println("* * * *   Giao diện   * * * * * *");
         System.out.println("*                               *");
         System.out.println("*       1.    Chủ               *");
         System.out.println("*       2.    Khách             *");
@@ -193,30 +196,30 @@ public class Menu {
         System.out.println("* * * * * * * * * * * * * * * * *");
     }
     public static void menuBoss() {
-        System.out.println("⚪ ⚪ ⚪ ⚪ ⚪  Giao diện chủ  ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ");
-        System.out.println("⚪                                             ⚪");
-        System.out.println("⚪     1. Hiển thị danh sách sản phẩm          ⚪");
-        System.out.println("⚪     2. Thêm sản phẩm vào danh sách          ⚪");
-        System.out.println("⚪     3. Sửa thông tin sản phẩm               ⚪");
-        System.out.println("⚪     4. Tìm kiếm sản phẩm theo tên           ⚪");
-        System.out.println("⚪     5. Xem tổng doanh thu                   ⚪");
-        System.out.println("⚪     6. Quay lại                             ⚪");
-        System.out.println("⚪     7. Thoát                                ⚪");
-        System.out.println("⚪                                             ⚪");
-        System.out.println("⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪");
+        System.out.println("===============   Giao diện chủ   ===============");
+        System.out.println("|                                               |");
+        System.out.println("|      1. Hiển thị danh sách sản phẩm           |");
+        System.out.println("|      2. Thêm sản phẩm vào danh sách           |");
+        System.out.println("|      3. Sửa thông tin sản phẩm                |");
+        System.out.println("|      4. Tìm kiếm sản phẩm theo tên            |");
+        System.out.println("|      5. Xem tổng doanh thu                    |");
+        System.out.println("|      6. Quay lại                              |");
+        System.out.println("|      7. Thoát                                 |");
+        System.out.println("|      8. xoá                                   |");
+        System.out.println("=================================================");
     }
 
     public static void menuGuest() {
-        System.out.println("⚪ ⚪ ⚪ ⚪ ⚪  Giao diện Khách   ⚪ ⚪ ⚪ ⚪ ⚪ ");
-        System.out.println("⚪                                             ⚪");
-        System.out.println("⚪     1. Hiển thị danh sách sản phẩm          ⚪");
-        System.out.println("⚪     2. Tìm kiếm sản phẩm theo tên           ⚪");
-        System.out.println("⚪     3. Sắp xếp sản phẩm theo giá tăng dần   ⚪");
-        System.out.println("⚪     4. Sắp xếp sản phẩm theo giá giảm dần   ⚪");
-        System.out.println("⚪     5. Mua sản phẩm                         ⚪");
-        System.out.println("⚪     6. Quay lại                             ⚪");
-        System.out.println("⚪     7. Thoát                                ⚪");
-        System.out.println("⚪                                             ⚪");
-        System.out.println("⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ⚪ ");
+        System.out.println("===============   Giao diện Khách  ===============");
+        System.out.println("|                                                |");
+        System.out.println("|        1. Hiển thị danh sách sản phẩm          |");
+        System.out.println("|        2. Tìm kiếm sản phẩm theo tên           |");
+        System.out.println("|        3. Sắp xếp sản phẩm theo giá tăng dần   |");
+        System.out.println("|        4. Sắp xếp sản phẩm theo giá giảm dần   |");
+        System.out.println("|        5. Mua sản phẩm                         |");
+        System.out.println("|        6. Quay lại                             |");
+        System.out.println("|        7. Thoát                                |");
+        System.out.println("|                                                |");
+        System.out.println("==================================================");
     }
 }
