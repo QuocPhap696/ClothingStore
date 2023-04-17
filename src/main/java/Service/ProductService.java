@@ -130,18 +130,19 @@ public class ProductService implements IProductService {
     }
 
 
-//    //xoá ////
-//    public  void deleteBookByName(String name){
-//        int index = -1;
-//        for (int i = 0; i < productList.size(); i++) {
-//            if (Objects.equals(name, productList.get(i).getNameProduct())) {
-//                index = i;
-//            }
-//        }
-//
-//        if(index != -1) {
-//            productList.remove(index);
-//        }
-//    }
+//xoá theo ID
+    public  void deleteBookByID(Integer id) {
+        int index = -1;
+        for (int i = 0; i < productList.size(); i++) {
+            if (Objects.equals(id, productList.get(i).getId())) {
+                index = i;
+            }
+        }
+
+        if (index != -1) {
+            productList.remove(index);
+        }
+        CSVUtils.write(path, productList);
+    }
 }
 

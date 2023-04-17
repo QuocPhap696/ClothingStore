@@ -52,14 +52,15 @@ public class Menu {
                         paymentView.showAllIncome();
                         break;
                     case 6:
-                        chon();
+                        productView.deleteProductByID();
                         break;
                     case 7:
+                        chon();
+                        break;
+                    case 8:
                         exit();
                         break;
-//                    case 8:
-//                        productView.deleteProductByName();
-//                        break;
+
                     default:
                         System.out.println("Chọn chức năng không đúng! Vui lòng chọn lại");
                         break;
@@ -203,9 +204,9 @@ public class Menu {
         System.out.println("|      3. Sửa thông tin sản phẩm                |");
         System.out.println("|      4. Tìm kiếm sản phẩm theo tên            |");
         System.out.println("|      5. Xem tổng doanh thu                    |");
-        System.out.println("|      6. Quay lại                              |");
-        System.out.println("|      7. Thoát                                 |");
-        System.out.println("|      8. xoá                                   |");
+        System.out.println("|      6. Xoá                                   |");
+        System.out.println("|      7. Quay lại                              |");
+        System.out.println("|      8. Thoát                                 |");
         System.out.println("=================================================");
     }
 

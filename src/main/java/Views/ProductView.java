@@ -7,7 +7,6 @@ import Utilities.DateUtils;
 import Utilities.PriceSortASC;
 import Utilities.PriceSortDESC;
 
-import java.security.spec.RSAOtherPrimeInfo;
 import java.text.DecimalFormat;
 import java.util.Date;
 import java.util.List;
@@ -346,23 +345,29 @@ public class ProductView {
         }
     }
 
-//    //xoá
-//    public void deleteMembers() {
-//        System.out.println("Nhập tên mà cưng muốn xoá");
-//        int id = Integer.parseInt(scanner.nextLine());
-//
-//        for (int i = 0; i < pr.size(); i++) {
-//            if ( id == customers.get(i).getId()) {
-//                customers.remove(i);
-//            }
-//        } showCustom();
-//    }
 
-//    //xoá sách
-//    public  void deleteProductByName() {
-//        System.out.println("Nhập tên mà bạn muốn xoá");
-//        String name = scanner.nextLine();
-//        productService.deleteBookByName(name);
-//        updateProduct();
-//    }
+    public  void deleteProductByID() {
+        boolean check_id = false;
+        int id = 0;
+        do {
+            System.out.println("Nhập ID mà bạn muốn xoá");
+            try {
+                id = Integer.parseInt(scanner.nextLine());
+            }catch (NumberFormatException e ) {
+                System.out.println("Id phải là một số, vui lòng nhập lại");
+                id = 0;
+                continue;
+            }
+
+        boolean checkIdAvailable = productService.existProduct(id);
+        if (checkIdAvailable) {
+            productService.deleteBookByID(id);
+            showProduct();
+            check_id = true;
+        }else {
+            System.out.println("Không tìm thấy Id, vui lòng nhập lại");
+            check_id = false;
+        }
+        }while (!check_id);
+    }
 }
