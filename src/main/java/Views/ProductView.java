@@ -107,15 +107,15 @@ public class ProductView {
     public void showProduct() {
         List<Product> products = productService.getProduct();
         System.out.println("Danh sách sản phẩm");
-        System.out.println("\\t\\t\\t\\t======================================================================================================");
-        System.out.printf("\t\t\t\t%-10s %-25s %-25s %-15s %-25s %-25s %-25s %-25s %-25s\n", "ID", "Tên Sản Phẩm", "Size",
+        System.out.println("\t\t\t\t=====================================================================================================================================================================================================================");
+        System.out.printf("\t\t\t\t%-10s %-25s %-25s %-15s %-35s %-25s %-25s %-25s %-25s\n", "ID", "Tên Sản Phẩm", "Size",
                     "Màu sắc","Mô Tả", "Số Lượng", "Ngày Nhập", "Giá", "Trạng Thái");
         for (Product product : products) {
-            System.out.printf("\t\t\t\t%-10s %-25s %-25s %-15s %-25s %-25s %-25s %-25s %-25s\n",
+            System.out.printf("\t\t\t\t%-10s %-25s %-25s %-15s %-35s %-25s %-25s %-25s %-25s\n",
                     product.getId(), product.getNameProduct(), product.getSize(), product.getColor(),
                     product.getDescription(),product.getQuantity(),product.getEntryDate(),format.format(product.getPrice()), product.getStatus());
         }
-        System.out.println("\t\t\t\t===========================================================================================================\n\n");
+        System.out.println("\t\t\t\t======================================================================================================================================================================================================================\n\n");
       menu.boss();
     }
 
